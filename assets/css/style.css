@@ -182,7 +182,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {-webkit-appe
 
 	.header-main .header-inner-main {position: relative; background-color: var(--primary-color-dark);  }
 	.header-main .header-inner-main .header-inner {width: calc(100% - 123px); align-items: center; }
-	.header-main .header-inner-main  nav.navbar {padding: 0; display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: -webkit-box; display: flex; flex-wrap: nowrap; align-items: center;}
+	.header-main .header-inner-main  nav.navbar {z-index: 999; padding: 0; display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: -webkit-box; display: flex; flex-wrap: nowrap; align-items: center;}
 	.header-main .header-inner-main .header-inner .header-menu ul li a {position: relative; font-size: 18px; color:#C7C7CC; margin: 0px 18px; font-weight: 500; padding: 42px 0 35px; }
 	.header-main .header-inner-main .header-inner .header-menu ul li a:hover { color:#07E992;}
 	.header-main .header-inner-main .header-inner .header-menu ul li a.active {color:#07E992; }
