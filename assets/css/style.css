@@ -1379,7 +1379,7 @@ h1.title-404{font-size:160px;line-height:normal;}
 /* end */
 
 .testimonials-section { position: relative; overflow: hidden;z-index: 1; }
-.testimonials-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url(../images/square-bg-pattern.png); background-repeat: no-repeat; background-size: cover; background-color: var(--primary-color-dark); pointer-events: none; z-index: -1; }
+.testimonials-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url(../images/square-bg-pattern.png); background-repeat: no-repeat; background-size: cover; background-color: var(--primary-color-dark); pointer-events: none; z-index: -1;background-position: left bottom;opacity: 0.8; }
 .section-title { font-size: 57px; font-weight: 500; color: #07E992; margin-bottom: 20px;}
 .section-subtitle {font-size: 20px; color: #FFFFFF; max-width: 680px; font-weight: 400; }
 .testimonial-nav-arrows { display: flex; gap: 12px; justify-content: end; align-items: center; }
