@@ -1340,6 +1340,7 @@ h1.title-404{font-size:160px;line-height:normal;}
 }
 .ef-items .ci-text-bold p{
 	opacity: 0.3;
+	font-weight: 200;
 }
 .ef-items .ci-icon {
     background: rgba(255, 255, 255, 0.04);

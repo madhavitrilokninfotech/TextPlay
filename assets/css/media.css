@@ -70,7 +70,7 @@
 	}
 	.btn-download,
 	.banner-sec.v1 .btn-border{
-		line-height: 1.1;
+		line-height: 1.2;
 	}
 	.banner-sec.v1 .btn-border {
 		margin-left: 10px;
@@ -842,8 +842,12 @@
 		font-size: 48px;
 	}
 	.banner-sec.v1 .btn-border,
-	.btn-download {
+	.btn.btn-download {
 		padding: 8px 22px;
+	}
+	.btn_arrow {
+		height: 18px;
+		width: 18px;
 	}
 	.header-main .header-inner-main nav.navbar{
 		z-index: 999;
@@ -869,7 +873,9 @@
 	.translation-sec  {
 		padding-bottom: 0 !important;
 	}
-	
+	.bridge-between .main-wrapper .content-left {
+		margin-bottom: 50px;
+	}
 }
 
 /*=========================================================
@@ -896,7 +902,7 @@
 
 	.text-top-v1 {max-width: 400px;}
 	
-	.btn{padding:10px 20px;font-size:15px; min-width: 120px;}
+	.btn{padding:10px 20px;font-size:16px; min-width: 120px;}
 	.banner-sec .banner-wrap{padding-bottom:20px;}
 	.banner-img-wp .banner-img{text-align:center;}
 	.banner-btn ul li:last-child{margin-right:0px;}
@@ -1091,10 +1097,6 @@ Extra small devices (portrait phones, less than 576px)
 	.hero-bottom-v1 {
 		margin: 34px 0 45px;
 	}
-	.btn_arrow {
-		height: 18px;
-		width: 18px;
-	}
 	.banner-sec.v1 .btn-border {
 		margin: 10px auto 0;
 		display: block;
@@ -1170,14 +1172,14 @@ Extra small devices (portrait phones, less than 576px)
 
 @media (max-width: 481px) { 
 
-	h1 { font-size:38px; }
+	h1 { font-size:35px; }
 	h2 { font-size:28px; }
 	h3 { font-size:24px; }
 	h4 { font-size:22px; }
 	h5 { font-size:18px; }  
 	h6 { font-size:16px; }
 
-	.h1 { font-size:38px; }
+	.h1 { font-size:35px; }
 	.h2 { font-size:28px; }
 	.h3 { font-size:24px; }
 	.h4 { font-size:22px; }
