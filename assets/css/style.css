@@ -1370,6 +1370,8 @@ h1.title-404{font-size:160px;line-height:normal;}
 	background-color: var(--primary-color-dark);
     pointer-events: none;
 	z-index: -1;
+	background-position: left bottom;
+	opacity: 0.8;
 }
 .img-wrapper {
     padding: 0 40px 0;
