@@ -1350,7 +1350,7 @@ h1.title-404{font-size:160px;line-height:normal;}
 /* ============================================
 	TESTIMONIALS SECTION
 ============================================ */
-.testimonials-section { background:var(--primary-color-dark); padding: 100px 0 80px; position: relative; overflow: hidden;background-image: url(/assets/images/bgframe.png); }
+.testimonials-section { background:var(--primary-color-dark); padding: 100px 0 80px; position: relative; overflow: hidden;background-image: url(../images/bgframe.png); }
 .testimonials-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(74, 222, 148, 0.1) 0%, transparent 50%); pointer-events: none; }
 .section-title { font-size: 57px; font-weight: 500; color: #07E992; line-height: 1.2; margin-bottom: 20px; }
 .section-subtitle { font-size: 20px; color: #FFFFFF; line-height: 1.7; max-width: 680px; font-weight: 400; }
