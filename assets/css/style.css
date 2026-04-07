@@ -289,7 +289,7 @@ ul.social-link li .social-icon:hover{background:#fff;}
 .footer-main .footer-text .footer-right{display:flex;align-items: center;}
 .footer-main .footer-text .footer-right .developed-by-img{width:191px;height:38px;}
 .footer-main .footer-text .footer-right h5{color: #000000;margin-bottom:0px;font-size:20px;font-weight: normal;margin-right: 20px;}
-.footer-main{background:var(--primary-color-light);padding-top:60px;}
+.footer-main{background: rgba(25, 60, 58, 1);padding-top:60px;}
 .footer-copyright{background:#07E992;padding:15px 0px;}
 
 .footer-b-link ul{display:flex;align-items:center;}
@@ -1381,35 +1381,25 @@ h1.title-404{font-size:160px;line-height:normal;}
 .testimonials-section { position: relative; overflow: hidden;z-index: 1; }
 .testimonials-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url(../images/square-bg-pattern.png); background-repeat: no-repeat; background-size: cover; background-color: var(--primary-color-dark); pointer-events: none; z-index: -1; }
 .section-title { font-size: 57px; font-weight: 500; color: #07E992; margin-bottom: 20px;}
-.section-subtitle { color: #FFFFFF; max-width: 680px; font-weight: 400; }
-.testimonial-nav-arrows { display: flex; gap: 12px; justify-content: flex-end; align-items: center; }
+.section-subtitle {font-size: 20px; color: #FFFFFF; max-width: 680px; font-weight: 400; }
+.testimonial-nav-arrows { display: flex; gap: 12px; justify-content: end; align-items: center; }
+.testi-right {display: flex;justify-content: end;align-items: end;}
 .arrow-btn { width: 48px; height: 48px; background: transparent; border: 1px solid #07E992; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; }
 .arrow-btn:hover { background: #1b2930; border-color: #07E992; transform: scale(1.1); }
 .arrow-btn svg { stroke: var(--white); }
 .arrow-btn:hover svg { stroke: var(--teal-dark); }
 .testimonials-grid { margin-top: 60px; }
-.testimonial-card { background: rgba(255, 255, 255, 0.1); 
-border-radius: 20px; padding: 32px; height: 100%; display: flex; flex-direction: column;justify-content: space-between; transition: all 0.4s ease; position: relative; overflow: hidden; }
+.testimonial-card { background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 32px; height: 100%; display: flex; flex-direction: column;justify-content: space-between; transition: all 0.4s ease; position: relative; overflow: hidden; }
 .quote-icon-img { margin-bottom: 20px; }
-.testimonial-text { color: var(--primary-bglight); margin-bottom: 32px; flex-grow: 1; }
+.testimonial-text {font-size: 20px; color: var(--primary-bglight); margin-bottom: 32px; flex-grow: 1; }
 .testimonial-author { display: flex; align-items: center; gap: 12px; padding-top: 20px; }
 .author-avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
-.author-name { font-size: 16px; font-weight: 600; color: var(--white); }
-
-
-.testimonials-grid .slick-list.draggable {
-    display: flex;
-}
-
+.author-info {min-width: 0;}
+.author-name { font-size: 16px; font-weight: 600; color: var(--white);display: block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; }
+.testimonials-grid .slick-list.draggable {display: flex;}
 .testimonials-grid {margin-right: -25px;}
-
-.testimonials-grid .slick-list.draggable .testimonial-item {
-    padding-right: 25px;
-}
-
-.testimonials-grid .slick-list.draggable .slick-track {
-    display: flex;
-}
+.testimonials-grid .slick-list.draggable .testimonial-item {padding-right: 25px;}
+.testimonials-grid .slick-list.draggable .slick-track {display: flex;}
    
 /* ============================================
 	APP SHOWCASE SECTION
@@ -1417,14 +1407,14 @@ border-radius: 20px; padding: 32px; height: 100%; display: flex; flex-direction:
 .app-showcase-section {background: rgba(25, 60, 58, 1); }
 .app-showcase-main { background: rgba(27, 41, 48, 1); position: relative; overflow: hidden;border-radius: 100px; border-top-left-radius: 0px; border-top-right-radius: 0px; }
 .decorative-circles { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
-.phones-container { position: relative; display: flex; justify-content: center; align-items: center; min-height: 550px; z-index: 10; }
+.phones-container { position: relative; display: flex; justify-content: center; align-items: center; z-index: 10; }
 .phone-mockup { position: absolute; width: 350px; height: 550px;  overflow: hidden; transition: transform 0.5s ease; }
 .phone-screen { width: 75%; height: 100%; object-fit: cover; }
 .app-name { font-size: 28px; font-weight: 700; color: #07E992; letter-spacing: 0.05em; }
 .showcase-content { max-width: 1280px; margin: 0 auto; position: relative; z-index: 10; top: -30px; }
 .showcase-title { font-size: 40px; font-weight: 700; color: #07E992; }
-.showcase-description { font-weight: 400; color: rgba(105, 105, 127, 1); }
-.showcase-tagline { font-weight: 400; color: rgba(105, 105, 127, 1); margin-bottom: 40px; }
+.showcase-description {font-size: 20px; font-weight: 400;line-height: 1.4; color: rgba(105, 105, 127, 1); }
+.showcase-tagline {font-size: 20px; font-weight: 400; color: rgba(105, 105, 127, 1); margin-bottom: 40px; }
 .app-badges { display: flex; gap: 16px; justify-content: center; align-items: center; }
 .badge-link { display: inline-block; transition: transform 0.3s ease; }
 .badge-link:hover { transform: scale(1.05); }

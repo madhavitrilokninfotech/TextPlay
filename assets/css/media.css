@@ -172,15 +172,13 @@
 		font-size: 48px;
 	}
 	
-	.testimonial-card {
-		padding: 25px;
-		border-radius: 15px;
-	}
+	.testimonial-card {padding: 25px;border-radius: 15px;}
 
-	.author-avatar {
-		width: 45px;
-		height: 45px;
-	}
+	.author-avatar {width: 45px;height: 45px;}
+
+	.section-title {
+        font-size: 48px;
+    }
 }
 
 
@@ -444,8 +442,21 @@
 	/* testimonial section */
 	.showcase-description,
 	.testimonial-text {
-		font-size: 18px !important;
+		font-size: 18px;
 	}
+	.app-showcase-main {
+		border-radius: 80px;
+		border-top-right-radius: 0px;
+		border-top-left-radius: 0px;
+	}
+
+	.section-title {
+        font-size: 42px;
+    }
+
+    .testimonial-card {
+        padding: 24px;
+    }
 
 
 }
@@ -653,6 +664,21 @@
 	.banner-sec.v1 {
 		padding-bottom: 60px;
 	}
+
+	/* testimonial section */
+	.section-title {font-size: 45px;}
+	.testimonials-grid {margin-top: 40px;}
+	.section-title,
+	.showcase-title {
+        font-size: 36px;
+    }
+
+    .section-subtitle,
+	.testimonial-text,
+	.showcase-description,
+	.showcase-tagline {
+        font-size: 16px;
+    }
 }	
 
 
@@ -897,6 +923,33 @@
 	}
 	.bridge-between .main-wrapper .content-left {
 		margin-bottom: 50px;
+	}
+
+	/* testimonial section */
+	.testi-right {display: flex;justify-content: left;align-items: center;margin-top: 20px;}
+
+    .testimonial-nav-arrows {
+        display: none;
+    }
+
+    .testimonial-card {
+        padding: 20px;
+    }
+
+	.app-showcase-main {
+		border-radius: 60px;
+		border-top-right-radius: 0px;
+		border-top-left-radius: 0px;
+	}
+
+	.arrow-btn {
+		width: 40px;
+		height: 40px;
+	}
+
+	.author-name,
+	.author-city {
+		font-size: 14px;
 	}
 }
 
@@ -1187,6 +1240,28 @@ Extra small devices (portrait phones, less than 576px)
 	.faq-toggle img.icon-dash {
 		width: 8px;
 	}
+
+	/* testimonial section */
+
+    .testimonial-text {
+        font-size: 14px;
+    }
+
+    .author-avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .arrow-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+	.app-showcase-main {
+		border-radius: 40px;
+		border-top-right-radius: 0px;
+		border-top-left-radius: 0px;
+	}
 	
 
 }
@@ -1240,6 +1315,12 @@ Extra small devices (portrait phones, less than 576px)
 	.feature-card-list li { padding: 8px; gap: 5px; }
 
 	/* contact-us page */
+
+	.app-showcase-main {
+		border-radius: 30px;
+		border-top-right-radius: 0px;
+		border-top-left-radius: 0px;
+	}
 
 }
 
