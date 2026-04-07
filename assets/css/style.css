@@ -1470,3 +1470,9 @@ border-radius: 20px; padding: 32px; height: 100%; display: flex; flex-direction:
 .badge-link { display: inline-block; transition: transform 0.3s ease; }
 .badge-link:hover { transform: scale(1.05); }
 .store-badge { height: 50px; width: auto; }
+
+
+
+.animated-gifs {
+    background: #1a242a;
+}
