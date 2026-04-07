@@ -706,7 +706,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
                         <!-- Testimonial Card 2 -->
                         <div class="testimonial-item">
@@ -725,7 +724,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
                         <!-- Testimonial Card 3 -->
                         <div class="testimonial-item">
@@ -744,7 +742,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
                         <!-- Testimonial Card 4 -->
                         <div class="testimonial-item">
@@ -763,7 +760,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1072,38 +1068,5 @@
 
     });
 </script>
-
-<script>
-    $(document).ready(function () {
-    
-        // LEFT TEXT SLIDER
-        $('.parents-features-slider-v2').slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            vertical: true,
-            asNavFor: '.smart-features-img-slider-v2',
-            focusOnSelect: true,
-            arrows: false,
-            infinite: true
-        });
-    
-        // RIGHT IMAGE SLIDER
-        $('.smart-features-img-slider-v2').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            asNavFor: '.parents-features-slider-v2',
-            arrows: false,
-            fade: true,
-            infinite: true
-        });
-    
-        // 🔥 CLICK FIX (IMPORTANT)
-        $('.parents-features-click').on('click', function () {
-            let index = $(this).data('slick-index');
-            $('.parents-features-slider-v2').slick('slickGoTo', index);
-        });
-    
-    });
-    </script>
 
 </html>
