@@ -1342,6 +1342,28 @@ h1.title-404{font-size:160px;line-height:normal;}
 	width: auto;
 	height: auto;
 }
+.bridge-between {
+    position: relative;
+    overflow: hidden;
+	z-index: 1;
+}
+.bridge-between::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+   	background-image: url(../images/square-bg-pattern.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: var(--primary-color-dark);
+    pointer-events: none;
+	z-index: -1;
+}
+.img-wrapper {
+    padding: 0 40px 0;
+}
 /* end */
 
 

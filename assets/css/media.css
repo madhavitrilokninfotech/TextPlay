@@ -418,6 +418,14 @@
 	.badge-ai {
 		gap: 6px;
 	}
+	.animated-gifs .img-wrapper img{
+		object-fit: contain;
+    	width: 300px;
+	}
+	.short-note-slider .img-wrapper img{
+		object-fit: contain;
+    	width: 340px;
+	}
 }
 
 
@@ -846,9 +854,23 @@
 	.main-wrapper .content-left {
 		margin-bottom: 30px;
 	}
-	.main-wrapper{
+	.padding-t-30 {
+		padding-top: 20px !important;
+	}
+	.padding-b-30 {
+		padding-bottom: 20px !important;
+	}
+	.explore-feature .main-wrapper,
+	.driven-mesgs,
+	.music-infused,
+	.voice-mesgs,
+	.short-note-slider,
+	.digial-greetings,
+	.in-app-wallet,
+	.translation-sec  {
 		padding-bottom: 0 !important;
 	}
+	
 }
 
 /*=========================================================
@@ -1044,7 +1066,9 @@
 	.hero-bottom-v1 p {
 		margin: 0 0 20px;
 	}
-
+	.animated-gifs .img-wrapper img {
+		width: auto;
+	}
 }
 
 /*=========================================================
@@ -1052,6 +1076,9 @@ Extra small devices (portrait phones, less than 576px)
 ===========================================================*/
 @media (max-width: 576px) { 
 	/* homepage */
+	.img-wrapper {
+		padding: 0;
+	}
 	.badge-ai img {
 		width: 12px;
 	}
