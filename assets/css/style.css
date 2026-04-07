@@ -91,6 +91,8 @@ html {scrollbar-color: #07E992 #fff; scrollbar-width: thin; scrollbar-border-rad
 	.font-bl { font-weight:bold !important;}
 	.font-ebl { font-weight:800 !important;}
 	.font-md {font-weight:500 !important;}
+	.font-400 {font-weight:400 !important;}
+
 
 /* 04 : Paragraph Style CSS BOF
 =================================================== */
@@ -1167,7 +1169,7 @@ h1.title-404{font-size:160px;line-height:normal;}
 	background-image: url(../images/patternback.png);
 	background-repeat: no-repeat;
 	background-position: center top;
-	opacity: 0.4;
+	opacity: 0.2;
 	z-index: 1;
 }
 .hero-title-v1{
