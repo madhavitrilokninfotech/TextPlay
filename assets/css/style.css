@@ -165,6 +165,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {-webkit-appe
 
 	.padding-t-60 {padding-top: 60px !important;}
 	.padding-b-60 {padding-bottom: 60px !important;}
+	.padding-t-30 {padding-top: 30px !important;}
+	.padding-b-30 {padding-bottom: 30px !important;}
 	.mb-40{margin-bottom: 40px;}
 	.mt-30{margin-top: 30px;}
 /*header active start*/
@@ -1234,6 +1236,11 @@ h1.title-404{font-size:160px;line-height:normal;}
     font-weight: 400;
 }
 .btn-transparent:hover{
+	background-color: transparent;
+	border: none;
+	color: rgba(7, 233, 146, 0.7);;
+}
+.btn-transparent:focus{
 	background-color: transparent;
 	border: none;
 	color: rgba(7, 233, 146, 0.7);;
