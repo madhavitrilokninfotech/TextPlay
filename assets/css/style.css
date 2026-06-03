@@ -855,15 +855,7 @@ h1.title-404{font-size:160px;line-height:normal;}
 .process-step-right-inner::after{content:"";position:absolute;width:100%;background:#F3F3F3;background:linear-gradient(0deg,rgba(243,243,243,1) 0%,rgba(243,243,243,0.1) 100%);bottom:0;top:0;}
 .process-step-main .tab-content>.tab-pane{/*transition:all 0.4s ease;opacity:0;visibility:hidden;*/transform:translateX(30px) rotate(-5deg);}
 
-.smart-conversations-wrap{position:relative;z-index:1;overflow:hidden;border-bottom-left-radius:60px;border-bottom-right-radius:60px;
-	/* background:-webkit-linear-gradient(0deg,rgba(25,25,58,1) 39%,rgba(25,25,58,0) 61%);background:-moz-linear-gradient(0deg,rgba(25,25,58,1) 39%,rgba(25,25,58,0) 61%);background:linear-gradient(0deg,rgba(25,25,58,1) 39%,rgba(25,25,58,0) 61%); */
-}
-/* .smart-conversations-wrap:after{content:'';position:absolute;left:0px;right:0px;bottom:-3px;background: rgba(27, 41, 48, 1);
-    background: -webkit-linear-gradient(180deg, rgba(27, 41, 48, 0) 39%, rgba(27, 41, 48, 1) 61%);
-    background: -moz-linear-gradient(180deg, rgba(27, 41, 48, 0) 39%, rgba(27, 41, 48, 1) 61%);
-    background: linear-gradient(180deg, rgba(27, 41, 48, 0) 39%, rgba(27, 41, 48, 1) 61%);
-	/* background:#19193A;background:-webkit-linear-gradient(0deg,rgba(25,25,58,1) 39%,rgba(25,25,58,0) 61%);background:-moz-linear-gradient(0deg,rgba(25,25,58,1) 39%,rgba(25,25,58,0) 61%);background:linear-gradient(0deg,rgba(25,25,58,1) 39%,rgba(25,25,58,0) 61%);
-	height:400px;} */
+.smart-conversations-wrap{position:relative;z-index:1;overflow:hidden;border-bottom-left-radius:60px;border-bottom-right-radius:60px;}
 .process-step-left{position:relative;z-index:2; margin-top: 80px;}
 
 .smart-features-mockup-main{width:100%;height:723px;position:relative;overflow:hidden;}
@@ -1462,4 +1454,129 @@ h1.title-404{font-size:160px;line-height:normal;}
     padding: 33%;
 }
 
+}
+
+
+
+.voice-mesgs .iphone-frame-main{position: relative;}
+.voice-mesgs .iphone-frame-main:after {
+    content: '';
+    background: url('../images/music-screen/iphone.png');
+    background-size: contain;
+    z-index: 1;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.voice-mesgs .iphone-frame {
+    position: relative;
+    max-width: 317px;
+    margin-top: 6px;
+    border-radius: 45px;
+    max-height: 85vh;
+    min-height: 500px;
+}
+ 
+/* for GIF css */
+/* .gif-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,.75);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    z-index: 10;
+}
+
+.gif-btn .pause-icon,
+.gif-btn .replay-icon{
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+}
+
+.pause-icon,
+.replay-icon {
+    display: none;
+}
+
+.gif-btn.playing {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gif-btn.playing .pause-icon {
+    display: flex;
+}
+
+.gif-btn.finished {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gif-btn.finished .replay-icon {
+    display: flex;
+} */
+
+
+/* for video css */
+.video-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: #666e72;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.4s;
+}
+
+.video-btn svg {
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+}
+
+.pause-icon,
+.play-icon,
+.replay-icon {
+    display: none;
+}
+
+/* Playing */
+.video-btn.pause-state .pause-icon {
+    display: block;
+}
+
+/* Paused */
+.video-btn.play-state .play-icon {
+    display: block;
+}
+
+/* Ended */
+.video-btn.replay-state .replay-icon {
+    display: block;
 }

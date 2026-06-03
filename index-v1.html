@@ -304,16 +304,44 @@
 
         </section>
 
-        <section class="music-infused padding-t-60 padding-b-60">
+        <section class="music-infused voice-mesgs padding-t-60 padding-b-60">
             <div class="container">
 
                 <div class="main-wrapper padding-t-30 padding-b-30">
                     <div class="row align-items-center flex-column-reverse flex-lg-row">
-                        <div class="col-lg-6">
-                            <div class="img-wrapper text-center">
-                                <img src="./assets/images/home-img/music-infused.png" alt="image">
+                        <div class="col-lg-6 voice-mesgs">
+                            <div class="img-wrapper iphone-frame-main text-center">
+                                <img src="./assets/images/music-screen/voice-r.gif" alt="image" class="iphone-frame">
                             </div>
                         </div>
+                        <!-- <div class="col-lg-6">
+                            <div class="img-wrapper iphone-frame-main text-center">
+                        
+                                <img
+                                    id="gifPlayer"
+                                    src="./assets/images/music-screen/greeting-card.gif"
+                                    data-preview="./assets/images/music-screen/voice-r.png"
+                                    data-gif="./assets/images/music-screen/greeting-card.gif"
+                                    alt=""
+                                    class="iphone-frame"
+                                >
+                        
+                                <button id="gifControlBtn" class="gif-btn">
+                                    <span class="pause-icon">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
+                                        </svg>
+                                    </span>
+                        
+                                    <span class="replay-icon">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                        
+                            </div>
+                        </div> -->
                         <div class="col-lg-6">
                             <div class="content-left">
                                 <h2 class="theme_text h1 font-400 mb-0">Music-Infused <br>
@@ -1053,27 +1081,14 @@
 
         $('.testimonials-grid').slick({
             slidesToShow: 4,
-            slidesToScroll: 1,
             arrows: false,
             infinite: true,
-            speed: 600,
-
             responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: { slidesToShow: 3 }
-                },
-                {
-                    breakpoint: 768,
-                    settings: { slidesToShow: 2 }
-                },
-                {
-                    breakpoint: 576,
-                    settings: { slidesToShow: 1 }
-                }
+                { breakpoint: 1200, settings: { slidesToShow: 3 } },
+                { breakpoint: 992, settings: { slidesToShow: 2 } },
+                { breakpoint: 768, settings: { slidesToShow: 1 } }
             ]
         });
-
 
         $('#nextBtn').click(function () {
             $('.testimonials-grid').slick('slickNext');
@@ -1085,5 +1100,108 @@
 
     });
 </script>
+
+<!-- this is use for GIF -->
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const gif = document.getElementById("gifPlayer");
+        const btn = document.getElementById("gifControlBtn");
+
+        const preview = gif.dataset.preview;
+        const gifSrc = gif.dataset.gif;
+
+        const GIF_DURATION = 29000;
+
+        let timer;
+        let isPlaying = false;
+        let hasAutoPlayed = false;
+        let userInitiatedPlay = false;
+
+        function playGif(showPauseButton = false) {
+
+            clearTimeout(timer);
+
+            gif.src = gifSrc + "?t=" + Date.now();
+
+            isPlaying = true;
+
+            btn.classList.remove("playing", "finished");
+
+            // Show pause button only after user clicks replay
+            if (showPauseButton) {
+                btn.classList.add("playing");
+            }
+
+            timer = setTimeout(() => {
+                finishGif();
+            }, GIF_DURATION);
+        }
+
+        function finishGif() {
+
+            clearTimeout(timer);
+
+            gif.src = preview;
+
+            isPlaying = false;
+
+            btn.classList.remove("playing");
+            btn.classList.add("finished");
+        }
+
+        function pauseGif() {
+
+            clearTimeout(timer);
+
+            gif.src = preview;
+
+            isPlaying = false;
+
+            btn.classList.remove("playing");
+            btn.classList.add("finished");
+        }
+
+        btn.addEventListener("click", () => {
+
+            if (isPlaying) {
+                pauseGif();
+                return;
+            }
+
+            userInitiatedPlay = true;
+
+            playGif(true);
+        });
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach(entry => {
+
+                    if (
+                        entry.isIntersecting &&
+                        !hasAutoPlayed
+                    ) {
+
+                        hasAutoPlayed = true;
+
+                        // First autoplay
+                        // No pause button shown
+                        playGif(false);
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.6
+            }
+        );
+
+        observer.observe(gif);
+
+    });
+</script> -->
 
 </html>

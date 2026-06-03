@@ -679,6 +679,13 @@
 	.showcase-tagline {
         font-size: 16px;
     }
+
+	.video-btn {
+		bottom: 20px;
+		right: 5px;
+		width: 45px;
+		height: 45px;
+	}
 }	
 
 
@@ -928,9 +935,9 @@
 	/* testimonial section */
 	.testi-right {display: flex;justify-content: left;align-items: center;margin-top: 20px;}
 
-    .testimonial-nav-arrows {
+    /* .testimonial-nav-arrows {
         display: none;
-    }
+    } */
 
     .testimonial-card {
         padding: 20px;
@@ -951,6 +958,11 @@
 	.author-city {
 		font-size: 14px;
 	}
+
+	.video-btn {
+        bottom: 20px;
+        right: 20px;
+    }
 }
 
 /*=========================================================
@@ -1262,6 +1274,12 @@ Extra small devices (portrait phones, less than 576px)
 		border-top-right-radius: 0px;
 		border-top-left-radius: 0px;
 	}
+
+	/* .video-btn.pause-state,
+	.video-btn.play-state,
+	.video-btn.replay-state {
+		display: none;
+	} */
 	
 
 }
@@ -1303,6 +1321,38 @@ Extra small devices (portrait phones, less than 576px)
 		margin-bottom: 20px;
 	}
 
+	/* .video-btn {
+		bottom: 95px;
+        right: 85px;
+        width: 40px;
+        height: 40px;
+    }
+
+	.video-btn svg {
+		width: 18px;
+		height: 18px;
+		fill: #fff;
+	} */
+
+	.video-btn {
+        bottom: 65px;
+        right: 90px;
+        width: 48px;
+        height: 48px;
+    }
+
+}
+
+@media (max-width: 430px) {
+	/* .video-btn {
+        bottom: 95px;
+        right: 55px;
+    } */
+
+	.video-btn {
+        bottom: 75px;
+        right: 65px;
+    }
 }
 
 @media (max-width:380px) {
@@ -1322,6 +1372,34 @@ Extra small devices (portrait phones, less than 576px)
 		border-top-left-radius: 0px;
 	}
 
+	/* .video-btn {
+        right: 30px;
+        width: 40px;
+        height: 40px;
+    } */
+
+	.video-btn {
+        bottom: 55px;
+        right: 65px;
+        width: 44px;
+        height: 44px;
+    }
+
+	.voice-mesgs .iphone-frame {
+		max-width: 250px;
+	}
+
+	
+
+}
+
+@media (max-width:320px) {
+	.video-btn {
+        bottom: 55px;
+        right: 40px;
+        width: 40px;
+        height: 40px;
+    }
 }
 
 
