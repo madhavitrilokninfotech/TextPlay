@@ -1280,6 +1280,36 @@ Extra small devices (portrait phones, less than 576px)
 	.video-btn.replay-state {
 		display: none;
 	} */
+
+	.video-btn{
+        /* position:absolute; */
+        left:50%;
+        top:50%;
+        transform:translate(-50%, -50%);
+        width:50px;
+        height:50px;
+        border-radius:50%;
+        background:rgba(0,0,0,.75);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        z-index:20;
+        opacity:0;
+        visibility:hidden;
+        transition: 0.4s;
+        pointer-events:none; /* frame handles clicks */
+    }
+
+    .video-btn.play-state,
+    .video-btn.replay-state{
+        opacity:1;
+        visibility:visible;
+    }
+
+    .video-btn.pause-state{
+        opacity:0;
+        visibility:hidden;
+    }
 	
 
 }
@@ -1334,12 +1364,12 @@ Extra small devices (portrait phones, less than 576px)
 		fill: #fff;
 	} */
 
-	.video-btn {
+	/* .video-btn {
         bottom: 65px;
         right: 90px;
         width: 48px;
         height: 48px;
-    }
+    } */
 
 }
 
@@ -1349,10 +1379,10 @@ Extra small devices (portrait phones, less than 576px)
         right: 55px;
     } */
 
-	.video-btn {
+	/* .video-btn {
         bottom: 75px;
         right: 65px;
-    }
+    } */
 }
 
 @media (max-width:380px) {
@@ -1378,12 +1408,12 @@ Extra small devices (portrait phones, less than 576px)
         height: 40px;
     } */
 
-	.video-btn {
+	/* .video-btn {
         bottom: 55px;
         right: 65px;
         width: 44px;
         height: 44px;
-    }
+    } */
 
 	.voice-mesgs .iphone-frame {
 		max-width: 250px;
@@ -1393,14 +1423,14 @@ Extra small devices (portrait phones, less than 576px)
 
 }
 
-@media (max-width:320px) {
+/* @media (max-width:320px) {
 	.video-btn {
         bottom: 55px;
         right: 40px;
         width: 40px;
         height: 40px;
     }
-}
+} */
 
 
 
