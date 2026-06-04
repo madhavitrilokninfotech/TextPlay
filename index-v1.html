@@ -317,37 +317,38 @@
                         <div class="col-lg-6">
                             <div class="img-wrapper iphone-frame-main text-center">
 
-                                <video
-                                    id="demoVideo"
-                                    class="iphone-frame"
-                                    preload="metadata"
-                                    playsinline
-                                    muted
-                                >
-                                    <source src="./assets/images/music-screen/geeting-card.mov" type="video/mp4">
-                                </video>
-                            
-                                <button id="videoControlBtn" class="video-btn pause-state">
-                            
-                                    <span class="pause-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
-                                        </svg>
-                                    </span>
-                            
-                                    <span class="play-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </span>
-                            
-                                    <span class="replay-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
-                                        </svg>
-                                    </span>
-                            
-                                </button>
+                                <div class="video-block">
+                                    <video
+                                        class="demoVideo iphone-frame"
+                                        preload="metadata"
+                                        playsinline
+                                        muted
+                                    >
+                                        <source src="./assets/images/music-screen/geeting-card.mov" type="video/mp4">
+                                    </video>
+                                
+                                    <button class="videoControlBtn video-btn pause-state">
+                                
+                                        <span class="pause-icon">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
+                                            </svg>
+                                        </span>
+                                
+                                        <span class="play-icon">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"/>
+                                            </svg>
+                                        </span>
+                                
+                                        <span class="replay-icon">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+                                            </svg>
+                                        </span>
+                                
+                                    </button>
+                                </div>
                             
                             </div>
                         </div>
@@ -1217,175 +1218,234 @@
 <!-- for video animation to all devices -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-    
-        const video = document.getElementById("demoVideo");
-        const btn = document.getElementById("videoControlBtn");
-    
-        let userPaused = false;
-        let videoEnded = false;
-    
+
+        const videoBlocks = document.querySelectorAll(".video-block");
+        const videos = document.querySelectorAll(".demoVideo");
+
         function isMobile() {
             return window.innerWidth <= 576;
         }
-    
+
         // =========================
-        // STATE MANAGEMENT
+        // GET BLOCK ELEMENTS
         // =========================
-        function setPauseState() {
-            btn.classList.remove("play-state", "replay-state");
-            btn.classList.add("pause-state");
+        function getElements(block) {
+            return {
+                video: block.querySelector(".demoVideo"),
+                btn: block.querySelector(".videoControlBtn")
+            };
         }
-    
-        function setPlayState() {
-            btn.classList.remove("pause-state", "replay-state");
-            btn.classList.add("play-state");
+
+        // =========================
+        // BUTTON STATE
+        // =========================
+        function setState(video, btn) {
+
+            if (!video || !btn) return;
+
+            btn.classList.remove("play-state", "pause-state", "replay-state");
+
+            if (video.ended) {
+
+                if (isMobile()) {
+                    btn.classList.add("play-state");
+                } else {
+                    btn.classList.add("replay-state");
+                }
+
+            } else if (video.paused) {
+
+                btn.classList.add("play-state");
+
+            } else {
+
+                btn.classList.add("pause-state");
+            }
         }
-    
-        function setReplayState() {
-            btn.classList.remove("pause-state", "play-state");
-            btn.classList.add("replay-state");
+
+        // =========================
+        // PAUSE OTHERS
+        // =========================
+        function pauseOthers(currentVideo) {
+            videos.forEach(v => {
+                if (v !== currentVideo) v.pause();
+            });
         }
-    
+
         // =========================
         // PLAY / PAUSE
         // =========================
-        function playVideo(fromBeginning = false) {
-    
-            if (fromBeginning) {
+        function playVideo(video, btn, fromStart = false) {
+
+            if (!video) return;
+
+            if (fromStart) {
                 video.currentTime = 0;
-                videoEnded = false;
             }
-    
+
+            pauseOthers(video);
+
             video.play();
-            setPauseState();
+            setState(video, btn);
         }
-    
-        function pauseVideo() {
+
+        function pauseVideo(video, btn) {
+
+            if (!video) return;
+
             video.pause();
-            setPlayState();
+            setState(video, btn);
         }
-    
+
         // =========================
-        // CENTER AUTO PLAY / PAUSE
+        // FIND CENTER VIDEO
         // =========================
-        function checkVideoPosition() {
-    
-            if (userPaused || videoEnded) return;
-    
-            const rect = video.getBoundingClientRect();
-    
-            const videoCenter = rect.top + rect.height / 2;
-            const viewportCenter = window.innerHeight / 2;
-    
-            const centerZone = 120;
-    
-            const isCentered =
-                Math.abs(videoCenter - viewportCenter) <= centerZone;
-    
-            if (isCentered) {
-    
-                if (video.paused) {
-                    video.play();
-                    setPauseState();
+        function getCenteredVideo() {
+
+            let closest = null;
+            let minDistance = Infinity;
+
+            videos.forEach(video => {
+
+                const rect = video.getBoundingClientRect();
+                const center = rect.top + rect.height / 2;
+                const screenCenter = window.innerHeight / 2;
+
+                const distance = Math.abs(center - screenCenter);
+
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closest = video;
                 }
-    
-            } else {
-    
-                if (!video.paused) {
-                    video.pause();
-                    setPlayState();
-                }
-            }
+            });
+
+            return minDistance <= 150 ? closest : null;
         }
-    
+
         // =========================
-        // SCROLL OPTIMIZATION
+        // SCROLL AUTO PLAY
         // =========================
         let ticking = false;
-    
+
+        function checkVideos() {
+
+            const centered = getCenteredVideo();
+
+            videos.forEach(video => {
+
+                const block = video.closest(".video-block");
+                const btn = block.querySelector(".videoControlBtn");
+
+                if (video !== centered && !video.paused) {
+                    video.pause();
+                }
+
+                if (video === centered && !video.ended) {
+                    video.play();
+                }
+
+                setState(video, btn);
+            });
+        }
+
         window.addEventListener("scroll", () => {
-    
+
             if (!ticking) {
-    
                 window.requestAnimationFrame(() => {
-                    checkVideoPosition();
+                    checkVideos();
                     ticking = false;
                 });
-    
                 ticking = true;
             }
         });
-    
-        window.addEventListener("resize", checkVideoPosition);
-    
-        checkVideoPosition();
-    
+
+        window.addEventListener("resize", checkVideos);
+
         // =========================
-        // VIDEO ENDED
+        // INIT EACH VIDEO BLOCK
         // =========================
-        video.addEventListener("ended", () => {
-    
-            videoEnded = true;
-    
-            if (isMobile()) {
-                setPlayState();
-            } else {
-                setReplayState();
-            }
+        videoBlocks.forEach(block => {
+
+            const { video, btn } = getElements(block);
+
+            if (!video || !btn) return;
+
+            // CLICK BUTTON
+            btn.addEventListener("click", (e) => {
+
+                e.stopPropagation();
+
+                pauseOthers(video);
+
+                if (video.ended) {
+
+                    video.currentTime = 0;
+                    video.play();
+
+                    setState(video, btn);
+                    return;
+                }
+
+                if (video.paused) {
+
+                    video.play();
+
+                } else {
+
+                    video.pause();
+                }
+
+                setState(video, btn);
+            });
+
+            // CLICK VIDEO (MOBILE ONLY)
+            video.addEventListener("click", () => {
+
+                if (!isMobile()) return;
+
+                pauseOthers(video);
+
+                if (video.ended) {
+
+                    video.currentTime = 0;
+                    video.play();
+
+                    setState(video, btn);
+                    return;
+                }
+
+                if (video.paused) {
+
+                    video.play();
+
+                } else {
+
+                    video.pause();
+                }
+
+                setState(video, btn);
+            });
+
+            // ENDED EVENT
+            video.addEventListener("ended", () => {
+
+                if (isMobile()) {
+
+                    btn.classList.remove("pause-state", "replay-state");
+                    btn.classList.add("play-state");
+
+                } else {
+
+                    btn.classList.remove("pause-state", "play-state");
+                    btn.classList.add("replay-state");
+                }
+            });
         });
-    
-        // =========================
-        // MOBILE: TAP VIDEO ONLY
-        // =========================
-        video.addEventListener("click", () => {
-    
-            if (!isMobile()) return;
-    
-            if (videoEnded) {
-                userPaused = false;
-                playVideo(true);
-                return;
-            }
-    
-            if (!video.paused) {
-    
-                userPaused = true;
-                pauseVideo();
-    
-            } else {
-    
-                userPaused = false;
-                playVideo();
-            }
-        });
-    
-        // =========================
-        // BUTTON CONTROL
-        // =========================
-        btn.addEventListener("click", (e) => {
-    
-            e.stopPropagation();
-    
-            if (videoEnded) {
-    
-                userPaused = false;
-                playVideo(true);
-                return;
-            }
-    
-            if (!video.paused) {
-    
-                userPaused = true;
-                pauseVideo();
-    
-            } else {
-    
-                userPaused = false;
-                playVideo();
-            }
-        });
-    
+
+        // INIT
+        checkVideos();
+
     });
-    </script>
+</script>
 
 </html>
