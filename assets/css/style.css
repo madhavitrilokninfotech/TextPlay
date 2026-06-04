@@ -1544,7 +1544,9 @@ h1.title-404{font-size:160px;line-height:normal;}
     height: 52px;
     border: none;
     border-radius: 50%;
-    background: #666e72;
+	background: rgba(128, 128, 128, 0.5);
+	backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px);
     cursor: pointer;
     display: flex;
     align-items: center;
