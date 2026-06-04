@@ -1213,20 +1213,21 @@
     });
 </script> -->
 
+
+<!-- for video animation to all devices -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-
+    
         const video = document.getElementById("demoVideo");
         const btn = document.getElementById("videoControlBtn");
-        const frame = document.querySelector(".iphone-frame-main");
-
+    
         let userPaused = false;
         let videoEnded = false;
-
+    
         function isMobile() {
             return window.innerWidth <= 576;
         }
-
+    
         // =========================
         // STATE MANAGEMENT
         // =========================
@@ -1234,158 +1235,157 @@
             btn.classList.remove("play-state", "replay-state");
             btn.classList.add("pause-state");
         }
-
+    
         function setPlayState() {
             btn.classList.remove("pause-state", "replay-state");
             btn.classList.add("play-state");
         }
-
+    
         function setReplayState() {
             btn.classList.remove("pause-state", "play-state");
             btn.classList.add("replay-state");
         }
-
+    
         // =========================
         // PLAY / PAUSE
         // =========================
         function playVideo(fromBeginning = false) {
-
+    
             if (fromBeginning) {
                 video.currentTime = 0;
                 videoEnded = false;
             }
-
+    
             video.play();
             setPauseState();
         }
-
+    
         function pauseVideo() {
             video.pause();
             setPlayState();
         }
-
+    
         // =========================
-        // CENTER AUTO PLAY / PAUSE (ALL DEVICES)
+        // CENTER AUTO PLAY / PAUSE
         // =========================
         function checkVideoPosition() {
-
+    
             if (userPaused || videoEnded) return;
-
+    
             const rect = video.getBoundingClientRect();
-
+    
             const videoCenter = rect.top + rect.height / 2;
             const viewportCenter = window.innerHeight / 2;
-
+    
             const centerZone = 120;
-
+    
             const isCentered =
                 Math.abs(videoCenter - viewportCenter) <= centerZone;
-
+    
             if (isCentered) {
-
+    
                 if (video.paused) {
                     video.play();
                     setPauseState();
                 }
-
+    
             } else {
-
+    
                 if (!video.paused) {
                     video.pause();
                     setPlayState();
                 }
             }
         }
-
-        // smooth scroll optimization
+    
+        // =========================
+        // SCROLL OPTIMIZATION
+        // =========================
         let ticking = false;
-
+    
         window.addEventListener("scroll", () => {
-
+    
             if (!ticking) {
-
+    
                 window.requestAnimationFrame(() => {
                     checkVideoPosition();
                     ticking = false;
                 });
-
+    
                 ticking = true;
             }
-
         });
-
+    
         window.addEventListener("resize", checkVideoPosition);
-
+    
         checkVideoPosition();
-
+    
         // =========================
-        // VIDEO END EVENT (🔥 MOBILE FIX HERE)
+        // VIDEO ENDED
         // =========================
         video.addEventListener("ended", () => {
-
+    
             videoEnded = true;
-
+    
             if (isMobile()) {
-                // 🔥 MOBILE FIX: show PLAY instead of REPLAY
                 setPlayState();
             } else {
-                // desktop unchanged behavior
                 setReplayState();
             }
-
         });
-
+    
         // =========================
-        // MOBILE CLICK (FRAME)
+        // MOBILE: TAP VIDEO ONLY
         // =========================
-        frame.addEventListener("click", () => {
-
+        video.addEventListener("click", () => {
+    
             if (!isMobile()) return;
-
+    
             if (videoEnded) {
-
                 userPaused = false;
                 playVideo(true);
                 return;
             }
-
+    
             if (!video.paused) {
-
+    
                 userPaused = true;
                 pauseVideo();
-
+    
             } else {
-
+    
                 userPaused = false;
                 playVideo();
             }
         });
-
+    
         // =========================
-        // DESKTOP / TABLET BUTTON CONTROL (UNCHANGED)
+        // BUTTON CONTROL
         // =========================
-        btn.addEventListener("click", () => {
-
+        btn.addEventListener("click", (e) => {
+    
+            e.stopPropagation();
+    
             if (videoEnded) {
-
+    
                 userPaused = false;
                 playVideo(true);
                 return;
             }
-
+    
             if (!video.paused) {
-
+    
                 userPaused = true;
                 pauseVideo();
-
+    
             } else {
-
+    
                 userPaused = false;
                 playVideo();
             }
         });
-
+    
     });
-</script>
+    </script>
 
 </html>

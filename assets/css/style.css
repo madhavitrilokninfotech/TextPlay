@@ -1472,6 +1472,7 @@ h1.title-404{font-size:160px;line-height:normal;}
     display: inline-block;
     background-repeat: no-repeat;
     background-position: center;
+	pointer-events: none;
 }
 
 .voice-mesgs .iphone-frame {
